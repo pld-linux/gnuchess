@@ -12,8 +12,6 @@ Version:	4.0.pl80
 Release:	9
 License:	GPL
 Group:		Applications/Games
-Group(de):	Applikationen/Spiele
-Group(pl):	Aplikacje/Gry
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Source1:	xchess.png
 Source2:	%{name}.desktop
