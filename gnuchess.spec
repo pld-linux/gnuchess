@@ -12,7 +12,7 @@ Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:      gnuchess-fsstnd.patch
 Patch1:      gnuchess-ncurses.patch
 Icon:        xchess.gif
-Buildroot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 This is the famous GNU chess program.  It is text based, but can be used in
