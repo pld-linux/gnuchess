@@ -46,14 +46,14 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 cd src
 rm -f config.status config.cache
 %configure
-make CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6}
 
 cd src
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
 
 strip $RPM_BUILD_ROOT%{_bindir}/*
