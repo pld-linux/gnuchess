@@ -5,7 +5,7 @@ Summary(pl):	Gra w szachy
 Summary(tr):	Bilgisayar satranç oyunu
 Name:		gnuchess
 Version:	4.0.pl80
-Release:	5
+Release:	6
 License:	GPL
 Group:		Games
 Group(pl):	Gry
