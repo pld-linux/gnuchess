@@ -5,7 +5,7 @@ Summary(pl):	Gra w szachy
 Summary(tr):	Bilgisayar satranç oyunu
 Name:		gnuchess
 Version:	4.0.pl80
-Release:	7
+Release:	8
 License:	GPL
 Group:		Applications/Games
 Group(de):	Applikationen/Spiele
@@ -50,7 +50,7 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 %build
 cd src
 rm -f config.status config.cache
-%configure
+%configure2_13
 %{__make} CFLAGS="%{rpmcflags}"
 
 %install
