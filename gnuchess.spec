@@ -9,33 +9,33 @@ Release:	4
 License:	GPL
 Group:		Games
 Group(pl):	Gry
-Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The gnuchess package contains the GNU chess program.  By default, GNUchess
-uses a curses text-based interface.  Alternatively, GNUchess can be used in
-conjunction with the xboard user interface and the X Window System for a
-graphical chessboard.
+The gnuchess package contains the GNU chess program. By default,
+GNUchess uses a curses text-based interface. Alternatively, GNUchess
+can be used in conjunction with the xboard user interface and the X
+Window System for a graphical chessboard.
 
 %description -l de
 Das berühmte GNU-Schachprogramm. Es ist textorientiert, kann aber mit
 'xboard' verwendet werden, um X-orientiertes Schach zu spielen.
 
 %description -l fr
-Le fameux programme de jeu d'échecs de GNU. Il est en mode texte mais peut
-être utilisé avec xboard pour y jouer sous X.
+Le fameux programme de jeu d'échecs de GNU. Il est en mode texte mais
+peut être utilisé avec xboard pour y jouer sous X.
 
 %description -l pl
-Oto s³awny GNU program szachowy. Jest w trybie tekstowym, ale w po³±czeniu
-z xboard mo¿e mieæ interfejs w X Window.
+Oto s³awny GNU program szachowy. Jest w trybie tekstowym, ale w
+po³±czeniu z xboard mo¿e mieæ interfejs w X Window.
 
 %description -l tr
-Bu ünlü GNU satranç programýdýr. Metin ekranda çalýþýr ama xboard programý
-ile birlikte kullanýlarak X altýnda da oynanabilir.
+Bu ünlü GNU satranç programýdýr. Metin ekranda çalýþýr ama xboard
+programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 
 %prep
 %setup -q
