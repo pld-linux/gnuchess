@@ -9,7 +9,7 @@ Summary(tr):	Bilgisayar satranГ oyunu
 Summary(uk):	Шахова програма GNU
 Name:		gnuchess
 Version:	5.07
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Games
 Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
@@ -17,7 +17,6 @@ Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
 Source1:	xchess.png
 Source2:	%{name}.desktop
 URL:		http://www.gnu.org/software/chess/chess.html
-BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,11 +64,11 @@ programЩ ile birlikte kullanЩlarak X altЩnda da oynanabilir.
 може використовуватись у пар╕ з програмою xboard, яка забезпечу╓
 граф╕чний ╕нтерфейс п╕д X Window System.
 
-
 %prep
 %setup -q
 
 %build
+cp -f /usr/share/automake/config.* .
 %configure
 %{__make}
 
@@ -79,7 +78,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6
        $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}/
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install src/gnuchess $RPM_BUILD_ROOT%{_bindir}
 install src/gnuchessx $RPM_BUILD_ROOT%{_bindir}
 
