@@ -76,10 +76,10 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6} \
-       $RPM_BUILD_ROOT{%{_applnkdir}/Games/Board,%{_pixmapsdir}}
+       $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Board
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}/
 install src/gnuchess $RPM_BUILD_ROOT%{_bindir}
 
 %clean
@@ -90,5 +90,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*
 %attr(755,root,root) %{_bindir}/gnuchess
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Games/Board/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
