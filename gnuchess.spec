@@ -57,8 +57,8 @@ strip $RPM_BUILD_ROOT%{_bindir}/*
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%attr(755, root, root) %{_bindir}/*
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
 %{_libdir}/games/gnuchess
 %{_mandir}/man6/*
 
