@@ -9,7 +9,7 @@ Summary(tr):	Bilgisayar satranГ oyunu
 Summary(uk):	Шахова програма GNU
 Name:		gnuchess
 Version:	4.0.pl80
-Release:	9
+Release:	10
 License:	GPL
 Group:		Applications/Games
 Source0:	ftp://ftp.gnu.org/pub/gnu/chess/%{name}-%{version}.tar.gz
