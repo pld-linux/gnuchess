@@ -17,6 +17,7 @@ Patch1:		gnuchess-ncurses.patch
 Icon:		xchess.xpm
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Provides:	chessprogram
 
 %description
 The gnuchess package contains the GNU chess program. By default,
