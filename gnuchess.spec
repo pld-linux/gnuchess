@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644, root, root, 755)
 %attr(755, root, root) /usr/bin/*
-/usr/lib/games/gnuchess
+%{_libdir}/games/gnuchess
 %{_mandir}/man6/*
 
 %changelog
