@@ -5,18 +5,20 @@ Summary(pl):	Gra w szachy
 Summary(tr):	Bilgisayar satranç oyunu
 Name:		gnuchess
 Version:	4.0.pl80
-Release:	1
+Release:	3
 Copyright:	GPL
 Group:		Games
 Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-This is the famous GNU chess program.  It is text based, but can be used in
-conjunction with xboard to play X based chess.
+The gnuchess package contains the GNU chess program.  By default, GNUchess
+uses a curses text-based interface.  Alternatively, GNUchess can be used in
+conjunction with the xboard user interface and the X Window System for a
+graphical chessboard.
 
 %description -l de
 Das berühmte GNU-Schachprogramm. Es ist textorientiert, kann aber mit
