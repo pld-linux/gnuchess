@@ -1,17 +1,18 @@
-Summary:     Computer chess program
-Summary(de): Computerschachprogramm
-Summary(fr): Jeu d'échecs.
-Summary(pl): Gra w szachy
-Summary(tr): Bilgisayar satranç oyunu
-Name:        gnuchess
-Version:     4.0.pl77
-Release:     6
-Copyright:   GPL
-Group:       Games
-Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      gnuchess-fsstnd.patch
-Patch1:      gnuchess-ncurses.patch
-Icon:        xchess.gif
+Summary:	Computer chess program
+Summary(de):	Computerschachprogramm
+Summary(fr):	Jeu d'échecs.
+Summary(pl):	Gra w szachy
+Summary(tr):	Bilgisayar satranç oyunu
+Name:		gnuchess
+Version:	4.0.pl79
+Release:	6
+Copyright:	GPL
+Group:		Games
+Source:		ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:		gnuchess-fhs.patch
+Patch1:		gnuchess-ncurses.patch
+Patch2:		gnuchess-4.0.pl79.patch
+#Icon:		xchess.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -38,6 +39,7 @@ ile birlikte kullanýlarak X altýnda da oynanabilir.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 cd src
@@ -47,11 +49,14 @@ make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{lib/games/gnuchess,bin,man/man6}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6}
 
 cd src
-make prefix=$RPM_BUILD_ROOT/usr install
+make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
 strip $RPM_BUILD_ROOT%{_bindir}/*
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man6/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,5 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/games/gnuchess
+%{_datadir}/games/gnuchess
 %{_mandir}/man6/*
