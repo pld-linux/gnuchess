@@ -7,13 +7,14 @@ Name:		gnuchess
 Version:	4.0.pl80
 Release:	7
 License:	GPL
-Group:		Games
-Group(pl):	Gry
+Group:		Applications/Games
+Group(de):	Applikationen/Spiele
+Group(pl):	Aplikacje/Gry
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Source1:	xchess.png
-Source2:	gnuchess.desktop
-Patch0:		gnuchess-fhs.patch
-Patch1:		gnuchess-ncurses.patch
+Source2:	%{name}.desktop
+Patch0:		%{name}-fhs.patch
+Patch1:		%{name}-ncurses.patch
 Icon:		xchess.xpm
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,18 +51,18 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 cd src
 rm -f config.status config.cache
 %configure
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Games,/usr/X11R6/share/pixmaps}
+	$RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir}}
 
 cd src
 %{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games
 
 %clean
@@ -71,6 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Games/*
-/usr/X11R6/share/pixmaps/*
+%{_pixmapsdir}/*
 %{_datadir}/games/gnuchess
 %{_mandir}/man6/*
