@@ -4,14 +4,13 @@ Summary(fr):	Jeu d'échecs.
 Summary(pl):	Gra w szachy
 Summary(tr):	Bilgisayar satranç oyunu
 Name:		gnuchess
-Version:	4.0.pl79
-Release:	6
+Version:	4.0.pl80
+Release:	1
 Copyright:	GPL
 Group:		Games
-Source:		ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
-Patch2:		gnuchess-4.0.pl79.patch
 #Icon:		xchess.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -39,11 +38,11 @@ ile birlikte kullanýlarak X altýnda da oynanabilir.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 cd src
 rm -f config.status config.cache
+LDFLAGS="-s"; export LDFLAGS
 %configure
 make CFLAGS="$RPM_OPT_FLAGS"
 
@@ -54,7 +53,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6
 cd src
 make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
-strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man6/*
 
