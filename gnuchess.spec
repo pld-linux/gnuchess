@@ -5,9 +5,10 @@ Summary(pl):	Gra w szachy
 Summary(tr):	Bilgisayar satranç oyunu
 Name:		gnuchess
 Version:	4.0.pl80
-Release:	3
-Copyright:	GPL
+Release:	4
+License:	GPL
 Group:		Games
+Group(pl):	Gry
 Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
@@ -29,8 +30,8 @@ Le fameux programme de jeu d'échecs de GNU. Il est en mode texte mais peut
 être utilisé avec xboard pour y jouer sous X.
 
 %description -l pl
-Oto s³awny GNU program szachowy. Jest w trybie tekstowym, ale w po³±czeniu z
-xboard mo¿e mieæ interfejs w X Window.
+Oto s³awny GNU program szachowy. Jest w trybie tekstowym, ale w po³±czeniu
+z xboard mo¿e mieæ interfejs w X Window.
 
 %description -l tr
 Bu ünlü GNU satranç programýdýr. Metin ekranda çalýþýr ama xboard programý
@@ -44,7 +45,6 @@ ile birlikte kullanýlarak X altýnda da oynanabilir.
 %build
 cd src
 rm -f config.status config.cache
-LDFLAGS="-s"; export LDFLAGS
 %configure
 make CFLAGS="$RPM_OPT_FLAGS"
 
@@ -55,6 +55,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6
 cd src
 make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
+
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man6/*
 
