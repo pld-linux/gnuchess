@@ -13,7 +13,7 @@ Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
 BuildRequires:	ncurses-devel >= 5.0
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The gnuchess package contains the GNU chess program.  By default, GNUchess
