@@ -75,7 +75,7 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 
 %build
 cd src
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
