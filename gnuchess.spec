@@ -42,7 +42,7 @@ ile birlikte kullanýlarak X altýnda da oynanabilir.
 %build
 cd src
 rm -f config.status config.cache
-./configure --prefix=/usr
+%configure
 make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
