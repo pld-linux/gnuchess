@@ -1,12 +1,12 @@
-Summary:       Computer chess program
-Summary(de):   Computerschachprogramm
-Summary(es):   Juego de ajedrez de la GNU
-Summary(fr):   Jeu d'Иchecs
-Summary(pl):   Gra w szachy
-Summary(pt_BR):        Jogo de xadrez da GNU
-Summary(ru):   Шахматная программа GNU
-Summary(tr):   Bilgisayar satranГ oyunu
-Summary(uk):   Шахова програма GNU
+Summary:	Computer chess program
+Summary(de):	Computerschachprogramm
+Summary(es):	Juego de ajedrez de la GNU
+Summary(fr):	Jeu d'Иchecs
+Summary(pl):	Gra w szachy
+Summary(pt_BR):	Jogo de xadrez da GNU
+Summary(ru):	Шахматная программа GNU
+Summary(tr):	Bilgisayar satranГ oyunu
+Summary(uk):	Шахова програма GNU
 Name:		gnuchess
 Version:	5.06
 Release:	1
