@@ -11,7 +11,7 @@ Group:		Games
 Source:		ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
 Patch0:		gnuchess-fhs.patch
 Patch1:		gnuchess-ncurses.patch
-#Icon:		xchess.gif
+BuildRequires:	ncurses-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
