@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 %attr(755, root, root) /usr/bin/*
 /usr/lib/games/gnuchess
-%attr(644, root,  man) %{_mandir}/man6/*
+%{_mandir}/man6/*
 
 %changelog
 * Sun Sep 27 1998 Marcin 'Qrczak' Kowalczyk <qrczak@knm.org.pl>
