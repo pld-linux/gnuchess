@@ -9,7 +9,7 @@ Summary(tr):	Bilgisayar satranГ oyunu
 Summary(uk):	Шахова програма GNU
 Name:		gnuchess
 Version:	5.07
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Games
 Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
@@ -81,6 +81,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}/
 install src/gnuchess $RPM_BUILD_ROOT%{_bindir}
+install src/gnuchessx $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
