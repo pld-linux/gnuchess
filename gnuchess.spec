@@ -1,28 +1,26 @@
-Summary:	Computer chess program
-Summary(de):	Computerschachprogramm
-Summary(es):	Juego de ajedrez de la GNU
-Summary(fr):	Jeu d'Иchecs
-Summary(pl):	Gra w szachy
-Summary(pt_BR):	Jogo de xadrez da GNU
-Summary(ru):	Шахматная программа GNU
-Summary(tr):	Bilgisayar satranГ oyunu
-Summary(uk):	Шахова програма GNU
+Summary:       Computer chess program
+Summary(de):   Computerschachprogramm
+Summary(es):   Juego de ajedrez de la GNU
+Summary(fr):   Jeu d'Иchecs
+Summary(pl):   Gra w szachy
+Summary(pt_BR):        Jogo de xadrez da GNU
+Summary(ru):   Шахматная программа GNU
+Summary(tr):   Bilgisayar satranГ oyunu
+Summary(uk):   Шахова програма GNU
 Name:		gnuchess
-Version:	4.0.pl80
-Release:	10
+Version:	5.06
+Release:	1
 License:	GPL
 Group:		Applications/Games
-Source0:	ftp://ftp.gnu.org/pub/gnu/chess/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
+# Source0-md5:	9b25c80bef39e6ab24088dcfdea7d845
 Source1:	xchess.png
 Source2:	%{name}.desktop
-Patch0:		%{name}-fhs.patch
-Patch1:		%{name}-ncurses.patch
-Patch2:		%{name}-ac_fixes.patch
-Icon:		xchess.xpm
+URL:		http://www.gnu.org/software/chess/chess.html
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Provides:	chessprogram
 
 %description
 The gnuchess package contains the GNU chess program. By default,
@@ -67,37 +65,30 @@ programЩ ile birlikte kullanЩlarak X altЩnda da oynanabilir.
 може використовуватись у пар╕ з програмою xboard, яка забезпечу╓
 граф╕чний ╕нтерфейс п╕д X Window System.
 
+
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
-cd src
-%{__autoconf}
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Games/Board,%{_pixmapsdir}}
-
-cd src
-%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} \
-	exec_prefix=$RPM_BUILD_ROOT%{_prefix}
+       $RPM_BUILD_ROOT{%{_applnkdir}/Games/Board,%{_pixmapsdir}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Board
+install src/gnuchess $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc doc/*
+%attr(755,root,root) %{_bindir}/gnuchess
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Games/Board/*
 %{_pixmapsdir}/*
-%{_datadir}/games/gnuchess
-%{_mandir}/man6/*
