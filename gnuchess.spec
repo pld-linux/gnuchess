@@ -61,25 +61,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/games/gnuchess
 %{_mandir}/man6/*
-
-%changelog
-* Sun Sep 27 1998 Marcin 'Qrczak' Kowalczyk <qrczak@knm.org.pl>
-  [4.0.pl77-6]
-- use %%{name} and %%{version} macros,
-- added %setup -q parameter,
-- `mkdir -p' replaced with more standard `install -d',
-- simplified %files list and added full %attr description in %files,
-- added pl translation,
-- simplified install scripts.
-
-* Fri May 01 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Wed Apr 15 1998 Erik Troan <ewt@redhat.com>
-- built against new ncurses
-
-* Fri Oct 17 1997 Donnie Barnes <djb@redhat.com>
-- BuildRoot'ed
-
-* Thu Jul 10 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
