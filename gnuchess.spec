@@ -49,7 +49,6 @@ programý ile birlikte kullanýlarak X altýnda da oynanabilir.
 %build
 cd src
 rm -f config.status config.cache
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make} CFLAGS="$RPM_OPT_FLAGS"
 
@@ -64,8 +63,6 @@ cd src
 
 install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man6/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
