@@ -51,14 +51,14 @@ install -d $RPM_BUILD_ROOT/usr/{lib/games/gnuchess,bin,man/man6}
 
 cd src
 make prefix=$RPM_BUILD_ROOT/usr install
-strip $RPM_BUILD_ROOT/usr/bin/*
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%attr(755, root, root) /usr/bin/*
+%attr(755, root, root) %{_bindir}/*
 %{_libdir}/games/gnuchess
 %{_mandir}/man6/*
 
