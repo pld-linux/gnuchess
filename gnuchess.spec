@@ -12,7 +12,7 @@ Version:	4.0.pl80
 Release:	9
 License:	GPL
 Group:		Applications/Games
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/gnuchess/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/pub/gnu/chess/%{name}-%{version}.tar.gz
 Source1:	xchess.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-fhs.patch
