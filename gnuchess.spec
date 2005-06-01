@@ -18,6 +18,7 @@ Source1:	xchess.png
 Source2:	%{name}.desktop
 URL:		http://www.gnu.org/software/chess/chess.html
 BuildRequires:	automake
+BuildRequires:	flex
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
