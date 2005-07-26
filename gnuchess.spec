@@ -9,13 +9,14 @@ Summary(tr):	Bilgisayar satranç oyunu
 Summary(uk):	ûÁÈÏ×Á ĞÒÏÇÒÁÍÁ GNU
 Name:		gnuchess
 Version:	5.07
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Games
 Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
 # Source0-md5:	259da00aa559e5624c65279484fccaf7
 Source1:	xchess.png
 Source2:	%{name}.desktop
+Patch0:		%{name}-gcc4.patch
 URL:		http://www.gnu.org/software/chess/chess.html
 BuildRequires:	automake
 BuildRequires:	flex
@@ -67,6 +68,7 @@ programı ile birlikte kullanılarak X altında da oynanabilir.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
