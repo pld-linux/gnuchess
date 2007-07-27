@@ -43,8 +43,9 @@ Le fameux programme de jeu d'échecs de GNU. Il est en mode texte mais
 peut être utilisé avec xboard pour y jouer sous X.
 
 %description -l pl.UTF-8
-Oto sławny GNU program szachowy. Jest w trybie tekstowym, ale w
-połączeniu z xboard może mieć interfejs w X Window.
+Oto sławny GNU program szachowy. Domyślnie ma interfejs tekstowy
+(curses), ale w połączeniu z xboard może mieć graficzny interfejs
+X Window.
 
 %description -l pt_BR.UTF-8
 Este é o famoso programa de xadrez da GNU. É baseado em texto, mas
