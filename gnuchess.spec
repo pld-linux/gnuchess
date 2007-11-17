@@ -9,8 +9,8 @@ Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
 Version:	5.07
-Release:	5
-License:	GPL
+Release:	6
+License:	GPL v2
 Group:		Applications/Games
 Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
 # Source0-md5:	259da00aa559e5624c65279484fccaf7
@@ -91,8 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*
-%attr(755,root,root) %{_bindir}/gnuchess
-%attr(755,root,root) %{_bindir}/*
+%doc AUTHORS NEWS TODO doc/*
+%attr(755,root,root) %{_bindir}/gnuchess*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
