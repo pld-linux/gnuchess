@@ -12,7 +12,7 @@ Version:	5.07
 Release:	6
 License:	GPL v2
 Group:		Applications/Games
-Source0:	ftp://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
 # Source0-md5:	259da00aa559e5624c65279484fccaf7
 Source1:	xchess.png
 Source2:	%{name}.desktop
