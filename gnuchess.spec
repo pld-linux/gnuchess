@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
 Version:	5.07
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/Games
 Source0:	http://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
