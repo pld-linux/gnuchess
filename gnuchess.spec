@@ -17,6 +17,7 @@ Source0:	http://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
 Source1:	xchess.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
+Patch1:		compile.patch
 URL:		http://www.gnu.org/software/chess/chess.html
 BuildRequires:	automake
 BuildRequires:	flex
@@ -71,6 +72,7 @@ programı ile birlikte kullanılarak X altında da oynanabilir.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
