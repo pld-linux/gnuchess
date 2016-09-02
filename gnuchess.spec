@@ -8,20 +8,23 @@ Summary(ru.UTF-8):	Шахматная программа GNU
 Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
-Version:	5.07
-Release:	7
-License:	GPL v2
+Version:	6.2.2
+Release:	1
+License:	GPL v3+
 Group:		Applications/Games
 Source0:	http://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
-# Source0-md5:	259da00aa559e5624c65279484fccaf7
+# Source0-md5:	c181b5e218695a154a550292fddedc6d
 Source1:	xchess.png
 Source2:	%{name}.desktop
-Patch0:		%{name}-gcc4.patch
-Patch1:		compile.patch
+Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/chess/chess.html
-BuildRequires:	automake
 BuildRequires:	flex
+BuildRequires:	gettext-tools >= 0.18.3
+BuildRequires:	help2man
+BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	readline-devel
+BuildRequires:	texinfo
 Provides:	chess_backend
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -69,32 +72,56 @@ programı ile birlikte kullanılarak X altında da oynanabilir.
 може використовуватись у парі з програмою xboard, яка забезпечує
 графічний інтерфейс під X Window System.
 
+%package -n xboard-gnuchess
+Summary:	GNU Chess engine integration for Xboard
+Summary(pl.UTF-8):	Integracja silnika szachowego GNU Chess z Xboard
+Group:		Applications/Games
+Requires:	%{name} = %{version}-%{release}
+Requires:	xboard >= 4.6.0
+
+%description -n xboard-gnuchess
+GNU Chess engine integration for Xboard.
+
+%description -n xboard-gnuchess -l pl.UTF-8
+Integracja silnika szachowego GNU Chess z Xboard.
+
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-cp -f /usr/share/automake/config.* .
 %configure
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/games/gnuchess,%{_mandir}/man6} \
-       $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
-install src/gnuchess $RPM_BUILD_ROOT%{_bindir}
-install src/gnuchessx $RPM_BUILD_ROOT%{_bindir}
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS TODO doc/*
-%attr(755,root,root) %{_bindir}/gnuchess*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/gnuchess
+%attr(755,root,root) %{_bindir}/gnuchessu
+%{_datadir}/gnuchess
+%{_desktopdir}/gnuchess.desktop
+%{_pixmapsdir}/xchess.png
+%{_mandir}/man1/gnuchess.1*
+%{_infodir}/gnuchess.info*
+
+%files -n xboard-gnuchess
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/gnuchessx
+%{_datadir}/games/plugins/logos/gnuchess.png
+%{_datadir}/games/plugins/xboard/gnuchess.eng

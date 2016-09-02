@@ -1,0 +1,14 @@
+--- gnuchess-6.2.2/doc/gnuchess.texi.orig	2015-01-04 10:59:45.000000000 +0100
++++ gnuchess-6.2.2/doc/gnuchess.texi	2016-09-02 20:43:44.242442350 +0200
+@@ -30,9 +30,9 @@
+ @c the standard FSF Front-Cover and Back-Cover Texts, as given in
+ @c maintain.texi.
+ 
+-@dircategory Basics
++@dircategory Games:
+ @direntry
+-* GNU Chess: (gnuchess).               Playing chess and related games.
++* GNU Chess: (gnuchess).		Playing chess and related games
+ @end direntry
+ 
+ @titlepage
