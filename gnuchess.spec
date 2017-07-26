@@ -8,12 +8,12 @@ Summary(ru.UTF-8):	Шахматная программа GNU
 Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
-Version:	6.2.4
+Version:	6.2.5
 Release:	1
 License:	GPL v3+
 Group:		Applications/Games
 Source0:	http://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
-# Source0-md5:	4e1268030ba1ae83cbd03b3eac2f44a5
+# Source0-md5:	203572a43886fc2201662b9eb3b0f540
 Source1:	xchess.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-info.patch
