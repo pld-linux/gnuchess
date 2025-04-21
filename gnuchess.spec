@@ -8,12 +8,12 @@ Summary(ru.UTF-8):	Шахматная программа GNU
 Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
-Version:	6.2.9
+Version:	6.2.11
 Release:	1
 License:	GPL v3+
 Group:		Applications/Games
 Source0:	https://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
-# Source0-md5:	ede9af6cf29eea31179a737a21b9d1bc
+# Source0-md5:	784dc06371a98bd2d8e91ab5fb291b3c
 Source1:	xchess.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-info.patch
@@ -49,8 +49,8 @@ peut être utilisé avec xboard pour y jouer sous X.
 
 %description -l pl.UTF-8
 Oto sławny GNU program szachowy. Domyślnie ma interfejs tekstowy
-(curses), ale w połączeniu z xboard może mieć graficzny interfejs
-X Window.
+(curses), ale w połączeniu z xboard może mieć graficzny interfejs X
+Window.
 
 %description -l pt_BR.UTF-8
 Este é o famoso programa de xadrez da GNU. É baseado em texto, mas
@@ -87,7 +87,7 @@ Integracja silnika szachowego GNU Chess z Xboard.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %configure
@@ -101,8 +101,8 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
