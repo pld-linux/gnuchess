@@ -8,18 +8,18 @@ Summary(ru.UTF-8):	Шахматная программа GNU
 Summary(tr.UTF-8):	Bilgisayar satranç oyunu
 Summary(uk.UTF-8):	Шахова програма GNU
 Name:		gnuchess
-Version:	6.2.11
+Version:	6.3.0
 Release:	1
 License:	GPL v3+
 Group:		Applications/Games
 Source0:	https://ftp.gnu.org/gnu/chess/%{name}-%{version}.tar.gz
-# Source0-md5:	784dc06371a98bd2d8e91ab5fb291b3c
+# Source0-md5:	2d0710b0f817c7689bf1764101c32ef4
 Source1:	xchess.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-info.patch
 URL:		http://www.gnu.org/software/chess/chess.html
 BuildRequires:	flex
-BuildRequires:	gettext-tools >= 0.18.3
+BuildRequires:	gettext-tools >= 0.21
 BuildRequires:	help2man
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel >= 5.0
